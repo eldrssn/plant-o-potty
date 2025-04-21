@@ -1,5 +1,14 @@
+import { HeroUIProvider } from '@heroui/react'
+
+import { RouterProvider } from 'react-router-dom'
+import { router } from '@router'
+
 function App() {
-  return <div className="w-full h-dvw bg-red-700"></div>
+  return (
+    <HeroUIProvider>
+      <RouterProvider router={router} />
+    </HeroUIProvider>
+  )
 }
 
 export default App

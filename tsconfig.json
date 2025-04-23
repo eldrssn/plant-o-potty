@@ -35,7 +35,8 @@
       "@components": ["./components/index"],
       "@tokens": ["./tokens/index"],
       "@images/*": ["./assets/images/*"],
-      "@app/*": ["./*"],
+      "@app": ["./app/index"],
+      "@shared": ["./shared/index"],
       "@constants": ["./constants"]
     }
   },

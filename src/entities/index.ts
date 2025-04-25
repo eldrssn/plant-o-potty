@@ -1,1 +1,2 @@
-export * from './plant'
+export * from './plants'
+export * from './plants/lib'

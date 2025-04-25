@@ -1,11 +1,19 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Tab, Tabs } from '@heroui/react'
 import { NAV_ROUTES } from '@app'
 
 export const NavBar = () => {
+  const { pathname } = useLocation()
+
   return (
-    <nav className="fixed flex justify-center w-full bottom-4">
-      <Tabs aria-label="Options" color="primary" variant="bordered">
+    <nav className="fixed z-20 flex justify-center -translate-x-1/2 bottom-4 left-1/2 ">
+      <Tabs
+        selectedKey={pathname}
+        aria-label="Options"
+        color="primary"
+        variant="bordered"
+        className="overflow-hidden rounded-xl backdrop-blur-md border-default-200"
+      >
         {Object.values(NAV_ROUTES).map(({ path, name }) => (
           <Tab
             key={path}

@@ -28,7 +28,7 @@
       "@ui-kit": ["./ui-kit/index"],
       "@stores": ["./stores/index"],
       "@pages": ["./pages/index"],
-      "@utils": ["./utils/index"],
+      "@entities": ["./entities/index"],
       "@models": ["./models/index"],
       "@hooks": ["./hooks/index"],
       "@router": ["./router/index"],

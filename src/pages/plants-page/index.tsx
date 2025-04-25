@@ -1,5 +1,13 @@
-import { Card } from '@heroui/react'
+import { PlantListItem, usePlantStore } from 'entities'
 
 export const PlantsPage = () => {
-  return <Card>PlantsPage</Card>
+  const { plants } = usePlantStore()
+
+  return (
+    <main className="flex flex-col gap-4 pb-20">
+      {plants.map((plant) => (
+        <PlantListItem key={plant.id} plant={plant} />
+      ))}
+    </main>
+  )
 }

@@ -3,7 +3,7 @@ import { calculateNextWatering, getDateRelativeToToday, pseudoUUID } from './uti
 
 export const mockPlants: PlantModel[] = [
   {
-    id: pseudoUUID(),
+    id: '1',
     plant_type: 'Монстера Делициоза',
     nickname: 'Вася',
     wateringIntervalDays: 7,

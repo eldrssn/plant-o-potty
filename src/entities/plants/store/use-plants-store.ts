@@ -1,9 +1,9 @@
 import { create } from 'zustand'
 
-import type { PlantState } from './types' // Импорт типов
+import type { PlantsState } from './types' // Импорт типов
 import * as actions from './actions' // Импортируем всю логику экшенов
 
-export const usePlantStore = create<PlantState>((set) => ({
+export const usePlantsStore = create<PlantsState>((set) => ({
   plants: [],
   isLoading: false,
 

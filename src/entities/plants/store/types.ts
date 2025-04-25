@@ -1,6 +1,6 @@
 import { PlantModel } from '../model'
 
-export interface PlantState {
+export interface PlantsState {
   plants: PlantModel[]
   isLoading: boolean
   addPlant: (newPlant: PlantModel) => void

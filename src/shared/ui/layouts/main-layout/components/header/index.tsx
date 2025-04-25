@@ -7,5 +7,5 @@ export const Header = () => {
 
   const header = getHeaderName({ pathname, routes: NAV_ROUTES })
 
-  return <header className="mb-4 text-2xl text-center">{header}</header>
+  return <header className="mt-6 mb-4 text-2xl text-center">{header}</header>
 }

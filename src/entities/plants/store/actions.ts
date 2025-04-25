@@ -1,24 +1,24 @@
 import { PlantModel } from '../model'
-import type { PlantState } from './types' // Импортируем типы
+import type { PlantsState } from './types' // Импортируем типы
 
 // Логика добавления растения
 // Принимает текущее состояние и новое растение
 // Возвращает частичное состояние для обновления
-export const addPlantLogic = (state: PlantState, newPlant: PlantModel): Partial<PlantState> => {
+export const addPlantLogic = (state: PlantsState, newPlant: PlantModel): Partial<PlantsState> => {
   return { plants: [...state.plants, newPlant] }
 }
 
 // Логика удаления растения
-export const deletePlantLogic = (state: PlantState, plantId: string): Partial<PlantState> => {
+export const deletePlantLogic = (state: PlantsState, plantId: string): Partial<PlantsState> => {
   return { plants: state.plants.filter((plant) => plant.id !== plantId) }
 }
 
 // Логика полива растения
 export const waterPlantLogic = (
-  state: PlantState,
+  state: PlantsState,
   plantId: string,
   newLastWateredDateISO: string
-): Partial<PlantState> => {
+): Partial<PlantsState> => {
   const targetPlantIndex = state.plants.findIndex((p) => p.id === plantId)
   if (targetPlantIndex === -1) {
     return {} // Возвращаем пустой объект, если растение не найдено (нет изменений)
@@ -46,17 +46,17 @@ export const waterPlantLogic = (
 }
 
 // Логика обновления растения
-export const updatePlantLogic = (state: PlantState, updatedPlant: PlantModel): Partial<PlantState> => {
+export const updatePlantLogic = (state: PlantsState, updatedPlant: PlantModel): Partial<PlantsState> => {
   return {
     plants: state.plants.map((p) => (p.id === updatedPlant.id ? updatedPlant : p)),
   }
 }
 
 // Простые сеттеры можно оставить в store.ts или тоже вынести для единообразия
-export const setPlantsLogic = (plants: PlantModel[]): Partial<PlantState> => {
+export const setPlantsLogic = (plants: PlantModel[]): Partial<PlantsState> => {
   return { plants }
 }
 
-export const setLoadingLogic = (loading: boolean): Partial<PlantState> => {
+export const setLoadingLogic = (loading: boolean): Partial<PlantsState> => {
   return { isLoading: loading }
 }

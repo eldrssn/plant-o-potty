@@ -26,7 +26,7 @@ export const ROUTES_LIST: RouteObject[] = [
         element: <ItemPage />,
       },
       {
-        path: '/item:itemId',
+        path: `${NAV_ROUTES.PLANTS.path}/:itemId`,
         element: <ItemPage />,
       },
       {

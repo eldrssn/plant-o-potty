@@ -1,20 +1,23 @@
 import { Link, useLocation } from 'react-router-dom'
 import { Tab, Tabs } from '@heroui/react'
-import { NAV_ROUTES } from '@app'
+import { FC } from 'react'
+import { PropsType } from './types'
 
-export const NavBar = () => {
+export const NavBar: FC<PropsType> = ({ routes, isMatch }) => {
   const { pathname } = useLocation()
 
   return (
-    <nav className="fixed z-20 flex justify-center -translate-x-1/2 bottom-4 left-1/2 ">
+    <nav
+      className={`fixed z-20 flex justify-center -translate-x-1/2 bottom-4 left-1/2 transition-transform ${isMatch ? '' : 'translate-y-20'}`}
+    >
       <Tabs
         selectedKey={pathname}
         aria-label="Options"
         color="primary"
         variant="bordered"
-        className="overflow-hidden rounded-xl backdrop-blur-md border-default-200"
+        className="overflow-hidden rounded-xl backdrop-blur-md border-default-200 "
       >
-        {Object.values(NAV_ROUTES).map(({ path, name }) => (
+        {routes.map(({ path, name }) => (
           <Tab
             key={path}
             title={

@@ -38,6 +38,13 @@
       "@app": ["./app/index"],
       "@shared": ["./shared/index"],
       "@constants": ["./constants"]
+      // "@app/*": ["app/*"],
+      // "@entities/*": ["entities/*"],
+      // "@features/*": ["features/*"],
+      // "@shared/*": ["shared/*"],
+      // "@pages/*": ["pages/*"],
+      // "@widgets/*": ["widgets/*"],
+      // "@processes/*": ["processes/*"]
     }
   },
   "include": ["src"],

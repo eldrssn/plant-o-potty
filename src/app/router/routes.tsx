@@ -1,11 +1,16 @@
 import { RouteObject } from 'react-router-dom'
-import { ItemPage, DashboardPage, ProfilePage, PlantsPage } from '@pages'
-import { MainLayout } from '@shared'
+import {
+  ItemPage,
+  DashboardPage,
+  ProfilePage,
+  PlantsPage,
+  EditPage,
+} from '@pages'
+import { MainLayout } from 'app/layouts'
 
 export const NAV_ROUTES = {
   DASHBOARD: { path: '/', name: 'Home' },
   PLANTS: { path: '/plants', name: 'My Plants' },
-  NEW_ITEM: { path: '/new-item', name: 'Add new' },
   PROFILE: { path: '/profile', name: 'Profile' },
 }
 
@@ -19,15 +24,12 @@ export const ROUTES_LIST: RouteObject[] = [
       },
       {
         path: NAV_ROUTES.PLANTS.path,
-        element: <PlantsPage />,
-      },
-      {
-        path: NAV_ROUTES.NEW_ITEM.path,
-        element: <ItemPage />,
-      },
-      {
-        path: `${NAV_ROUTES.PLANTS.path}/:itemId`,
-        element: <ItemPage />,
+        children: [
+          { index: true, element: <PlantsPage /> },
+          { path: 'create', element: <EditPage /> },
+          { path: ':itemId', element: <ItemPage /> },
+          { path: ':itemId/edit', element: <EditPage /> },
+        ],
       },
       {
         path: NAV_ROUTES.PROFILE.path,

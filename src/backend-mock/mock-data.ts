@@ -1,5 +1,9 @@
 import { PlantModel } from '@entities'
-import { calculateNextWatering, getDateRelativeToToday, pseudoUUID } from './utils'
+import {
+  calculateNextWatering,
+  getDateRelativeToToday,
+  pseudoUUID,
+} from './utils'
 
 export const mockPlants: PlantModel[] = [
   {
@@ -116,7 +120,7 @@ export const mockPlants: PlantModel[] = [
     id: pseudoUUID(),
     plant_type: 'Драцена Маргината',
     wateringIntervalDays: 12,
-    lastWateredDate: null,
+    lastWateredDate: '',
     nextWateringDate: null,
     location: 'Прихожая',
     photoUrl: null,

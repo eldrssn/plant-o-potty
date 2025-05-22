@@ -1,5 +1,4 @@
 export * from './nav-bar'
 export * from './header'
 export { PlantsList } from './plants-list'
-export { PlantListItem } from './plant-list-item'
 export { PlantStatusChips } from './plant-status-chips'

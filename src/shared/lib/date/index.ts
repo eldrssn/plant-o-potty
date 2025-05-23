@@ -1,2 +1,2 @@
 export * from './calendar-date-to-ISO-string'
-export * from './iso-string-to-calendar-date'
+export * from './ISO-string-to-calendar-date'

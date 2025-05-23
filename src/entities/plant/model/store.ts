@@ -1,27 +1,22 @@
-import { create } from 'zustand'
+import { create, StateCreator } from 'zustand'
+import { subscribeWithSelector } from 'zustand/middleware'
+import { PlantsState } from './types'
+import * as actions from './actions'
 
-import type { PlantsState } from './types' // Импорт типов
-import * as actions from './actions' // Импортируем всю логику экшенов
-
-export const usePlantsStore = create<PlantsState>((set) => ({
+const storeCreator: StateCreator<PlantsState> = (set) => ({
   plants: [],
   isLoading: false,
 
-  // --- Действия ---
-  // Используем импортированную логику внутри set
   setPlants: (plants) => set(() => actions.setPlantsLogic(plants)),
-
   setLoading: (loading) => set(() => actions.setLoadingLogic(loading)),
+  addPlant: (plant) => set((state) => actions.addPlantLogic(state, plant)),
+  deletePlant: (id) => set((state) => actions.deletePlantLogic(state, id)),
+  waterPlant: (id, date) =>
+    set((state) => actions.waterPlantLogic(state, id, date)),
+  updatePlant: (plant) =>
+    set((state) => actions.updatePlantLogic(state, plant)),
+})
 
-  addPlant: (newPlant) =>
-    set((state) => actions.addPlantLogic(state, newPlant)),
-
-  deletePlant: (plantId) =>
-    set((state) => actions.deletePlantLogic(state, plantId)),
-
-  waterPlant: (plantId, newDate) =>
-    set((state) => actions.waterPlantLogic(state, plantId, newDate)),
-
-  updatePlant: (updatedPlant) =>
-    set((state) => actions.updatePlantLogic(state, updatedPlant)),
-}))
+export const usePlantsStore = create<PlantsState>()(
+  subscribeWithSelector(storeCreator)
+)

@@ -9,5 +9,4 @@ export const managePlantFormSchema = z.object({
   notes: z.string().optional(),
 })
 
-// Тип form data на основе схемы
 export type ManagePlantFormData = z.infer<typeof managePlantFormSchema>

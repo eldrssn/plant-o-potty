@@ -4,7 +4,7 @@ import { MenagePlantForm } from 'features'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-export const EditPage = () => {
+export const EditPlantPage = () => {
   const [plant, setPlant] = useState<PlantModel>()
   const { itemId } = useParams()
 

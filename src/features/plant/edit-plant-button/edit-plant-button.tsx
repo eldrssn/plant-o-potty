@@ -1,6 +1,6 @@
-import { Button } from '@heroui/react'
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Button } from '@heroui/react'
 import { NAV_ROUTES } from '@app'
 import { EditPlantButtonProps } from './types'
 

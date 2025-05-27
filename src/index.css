@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.popup-overlay-enter {
+  opacity: 0;
+}
+.popup-overlay-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.popup-overlay-exit {
+  opacity: 1;
+}
+.popup-overlay-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.popup-content-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+.popup-content-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms ease-in-out;
+}
+.popup-content-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.popup-content-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 300ms ease-in-out;
+}

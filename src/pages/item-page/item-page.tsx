@@ -9,6 +9,7 @@ import {
 } from '@entities'
 import { EditPlantButton } from 'features'
 import { PlantStatusChips } from 'widgets'
+import { Button } from '@heroui/react'
 
 // TODO: Нужно добавить потом лоадер и учесть асинхронщину
 export const ItemPage = () => {
@@ -25,7 +26,7 @@ export const ItemPage = () => {
   if (!plant) return <></>
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-full pb-5">
       <PlantImage src={plant.photoUrl} />
       <div className="z-10 flex flex-col px-5 -mt-16 backdrop-blur-sm">
         <div className="flex items-center justify-between h-16 mb-3">
@@ -37,6 +38,9 @@ export const ItemPage = () => {
 
         {plant.notes && <PlantNotes notes={plant.notes} />}
       </div>
+      <Button color="warning" variant="bordered" className="mx-5 mt-auto">
+        Delete Plant
+      </Button>
     </div>
   )
 }

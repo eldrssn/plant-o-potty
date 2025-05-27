@@ -17,5 +17,5 @@ export const EditPlantPage = () => {
 
   if (!plant) return <></>
 
-  return <MenagePlantForm plant={plant} />
+  return <MenagePlantForm plant={plant} mode="edit" />
 }

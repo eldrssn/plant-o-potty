@@ -1,5 +1,5 @@
 import { MenagePlantForm } from 'features'
 
 export const AddPlantPage = () => {
-  return <MenagePlantForm />
+  return <MenagePlantForm mode="create" />
 }

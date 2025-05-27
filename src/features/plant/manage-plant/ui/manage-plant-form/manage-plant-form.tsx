@@ -6,7 +6,7 @@ import { PlantFormHeader } from '../plant-form-header'
 import { FormCard, FormDatepicker, TextInput } from '@shared'
 import { FrequencySelect } from '../frequency-select'
 
-export const MenagePlantForm: FC<MenagePlantFormProps> = ({ plant }) => {
+export const MenagePlantForm: FC<MenagePlantFormProps> = ({ plant, mode }) => {
   const {
     control,
     register,
@@ -14,7 +14,7 @@ export const MenagePlantForm: FC<MenagePlantFormProps> = ({ plant }) => {
     // watch,
     // formState:
     // { errors },
-  } = usePlantForm(plant)
+  } = usePlantForm({ plant, mode })
 
   return (
     <div className="flex flex-col">
@@ -25,8 +25,8 @@ export const MenagePlantForm: FC<MenagePlantFormProps> = ({ plant }) => {
         onSubmit={onSubmit}
       >
         <FormCard>
+          <TextInput label="Название" {...register('plant_type')} isRequired />
           <TextInput label="Ласковое имя" {...register('nickname')} />
-          <TextInput label="Название" {...register('plant_type')} />
         </FormCard>
 
         <FormCard>

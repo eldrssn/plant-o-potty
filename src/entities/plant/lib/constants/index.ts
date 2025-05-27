@@ -6,11 +6,11 @@ export const EMPTY_PLANT: PlantModel = {
   id: '',
   plant_type: '',
   nickname: '',
-  wateringIntervalDays: null,
+  // wateringIntervalDays: null,
   lastWateredDate: '',
   nextWateringDate: null,
   // location: undefined,
   // notes: undefined,
   // photoUrl: undefined,
-  addedDate: '',
+  addedDate: new Date().toISOString(),
 }

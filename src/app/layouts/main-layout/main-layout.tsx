@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 
-import { NAV_ROUTES } from '@app'
+import { ModalsProvider, NAV_ROUTES } from '@app'
 import { Button } from '@heroui/react'
 import { Header, NavBar } from 'widgets'
 
@@ -26,7 +26,9 @@ export const MainLayout: FC = () => {
           Back
         </Button>
       )}
-      <Outlet />
+      <ModalsProvider>
+        <Outlet />
+      </ModalsProvider>
       <NavBar isMatch={isMatchNavRoutes} routes={routes} />
     </div>
   )

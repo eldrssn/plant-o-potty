@@ -7,9 +7,8 @@ import {
   PlantNotes,
   usePlantsStore,
 } from '@entities'
-import { EditPlantButton } from 'features'
+import { DeletePlantButton, EditPlantButton } from 'features'
 import { PlantStatusChips } from 'widgets'
-import { Button } from '@heroui/react'
 
 // TODO: Нужно добавить потом лоадер и учесть асинхронщину
 export const ItemPage = () => {
@@ -38,9 +37,8 @@ export const ItemPage = () => {
 
         {plant.notes && <PlantNotes notes={plant.notes} />}
       </div>
-      <Button color="warning" variant="bordered" className="mx-5 mt-auto">
-        Delete Plant
-      </Button>
+
+      <DeletePlantButton />
     </div>
   )
 }

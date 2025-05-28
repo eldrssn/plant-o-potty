@@ -7,27 +7,24 @@ import {
   Button,
 } from '@heroui/react'
 
+import { useUpdatePlantConfirm } from '../../model'
 import { ModalProps } from './types'
 
-import { useDeletePlantConfirm } from '../../model'
-
-export const DeletePlantConfirmModal: FC<ModalProps> = ({
+export const UpdatePlantConfirmModal: FC<ModalProps> = ({
   onClose,
   isOpen,
 }) => {
-  const { itemId, handleDelete } = useDeletePlantConfirm(onClose)
-
-  if (!itemId) return <></>
+  const { handleSubmit } = useUpdatePlantConfirm(onClose)
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1 text-center">
-          Удалить это растение?
+          Сохранить изменения?
         </ModalHeader>
         <ModalFooter>
-          <Button color="warning" className="w-full" onPress={handleDelete}>
-            Да, удалить
+          <Button color="success" className="w-full" onPress={handleSubmit}>
+            Да, сохранить
           </Button>
           <Button color="default" className="w-full" onPress={onClose}>
             Отмена

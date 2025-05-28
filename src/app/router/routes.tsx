@@ -4,8 +4,8 @@ import {
   DashboardPage,
   ProfilePage,
   PlantsPage,
-  EditPlantPage,
-  AddPlantPage,
+  UpdatePlantPage,
+  CreatePlantPage,
 } from '@pages'
 import { MainLayout } from 'app/layouts'
 
@@ -28,12 +28,12 @@ export const ROUTES_LIST: RouteObject[] = [
         children: [
           { index: true, element: <PlantsPage /> },
           { path: ':itemId', element: <ItemPage /> },
-          { path: ':itemId/edit', element: <EditPlantPage /> },
+          { path: ':itemId/update', element: <UpdatePlantPage /> },
         ],
       },
       {
         path: '/create',
-        element: <AddPlantPage />,
+        element: <CreatePlantPage />,
       },
       {
         path: NAV_ROUTES.PROFILE.path,

@@ -4,7 +4,7 @@ import type { PlantsState } from './types' // Импортируем типы
 // Логика добавления растения
 // Принимает текущее состояние и новое растение
 // Возвращает частичное состояние для обновления
-export const addPlantLogic = (
+export const createPlantLogic = (
   state: PlantsState,
   newPlant: PlantModel
 ): Partial<PlantsState> => {

@@ -1,3 +1,3 @@
 export interface PlantFormHeaderProps {
-  isEditMode: boolean
+  isUpdateMode: boolean
 }

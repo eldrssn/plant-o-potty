@@ -14,7 +14,7 @@ export interface PlantModel {
 export interface PlantsState {
   plants: PlantModel[]
   isLoading: boolean
-  addPlant: (newPlant: PlantModel) => void
+  createPlant: (newPlant: PlantModel) => void
   deletePlant: (plantId: string) => void
   waterPlant: (plantId: string, newLastWateredDate: string) => void
   updatePlant: (updatedPlant: PlantModel) => void

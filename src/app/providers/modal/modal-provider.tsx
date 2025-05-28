@@ -1,17 +1,35 @@
 import { FC, PropsWithChildren } from 'react'
 import { useModalsStore } from 'app/model'
-import { DeletePlantConfirmModal } from 'features'
+import {
+  CreatePlantConfirmModal,
+  DeletePlantConfirmModal,
+  UpdatePlantConfirmModal,
+} from 'features'
 
 export const ModalsProvider: FC<PropsWithChildren> = ({ children }) => {
-  const { isShowedModalDeletePlantConfirm, hideModalDeletePlantConfirm } =
-    useModalsStore()
+  const {
+    isShowedModalDeletePlant,
+    isShowedModalCreatePlant,
+    isShowedModalUpdatePlant,
+    hideModalDeletePlant,
+    hideModalCreatePlant,
+    hideModalUpdatePlant,
+  } = useModalsStore()
 
   return (
     <>
       {children}
       <DeletePlantConfirmModal
-        isOpen={isShowedModalDeletePlantConfirm}
-        onClose={hideModalDeletePlantConfirm}
+        isOpen={isShowedModalDeletePlant}
+        onClose={hideModalDeletePlant}
+      />
+      <CreatePlantConfirmModal
+        isOpen={isShowedModalCreatePlant}
+        onClose={hideModalCreatePlant}
+      />
+      <UpdatePlantConfirmModal
+        isOpen={isShowedModalUpdatePlant}
+        onClose={hideModalUpdatePlant}
       />
     </>
   )

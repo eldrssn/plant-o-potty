@@ -2,14 +2,14 @@ import { useModalsStore } from '@app'
 import { Button } from '@heroui/react'
 
 export const DeletePlantButton = () => {
-  const { showModalDeletePlantConfirm } = useModalsStore()
+  const { showModalDeletePlant } = useModalsStore()
 
   return (
     <Button
       color="warning"
       variant="bordered"
       className="mx-5 mt-auto"
-      onPress={showModalDeletePlantConfirm}
+      onPress={showModalDeletePlant}
     >
       Удалить это растение
     </Button>

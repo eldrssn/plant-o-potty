@@ -9,7 +9,8 @@ const storeCreator: StateCreator<PlantsState> = (set) => ({
 
   setPlants: (plants) => set(() => actions.setPlantsLogic(plants)),
   setLoading: (loading) => set(() => actions.setLoadingLogic(loading)),
-  addPlant: (plant) => set((state) => actions.addPlantLogic(state, plant)),
+  createPlant: (plant) =>
+    set((state) => actions.createPlantLogic(state, plant)),
   deletePlant: (id) => set((state) => actions.deletePlantLogic(state, id)),
   waterPlant: (id, date) =>
     set((state) => actions.waterPlantLogic(state, id, date)),

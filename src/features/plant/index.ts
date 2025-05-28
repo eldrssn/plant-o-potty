@@ -1,4 +1,4 @@
-export { EditPlantButton } from './edit-plant-button'
-export { MenagePlantForm } from './manage-plant'
-export * from './add-plant-button'
+export * from './update-plant'
+export * from './manage-plant'
+export * from './create-plant'
 export * from './delete-plant'

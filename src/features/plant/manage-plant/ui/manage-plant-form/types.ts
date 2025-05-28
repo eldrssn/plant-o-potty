@@ -1,6 +1,6 @@
 import { PlantModel } from '@entities'
 
-export interface MenagePlantFormProps {
-  mode: 'edit' | 'create'
+export interface ManagePlantFormProps {
+  mode: 'update' | 'create'
   plant?: PlantModel
 }

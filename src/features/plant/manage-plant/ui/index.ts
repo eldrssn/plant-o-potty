@@ -1,1 +1,1 @@
-export { MenagePlantForm } from './manage-plant-form'
+export { ManagePlantForm } from './manage-plant-form'

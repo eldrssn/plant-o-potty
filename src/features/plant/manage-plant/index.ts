@@ -1,1 +1,1 @@
-export { MenagePlantForm } from './ui'
+export { ManagePlantForm } from './ui'

@@ -7,7 +7,7 @@ import {
   PlantNotes,
   usePlantsStore,
 } from '@entities'
-import { DeletePlantButton, EditPlantButton } from 'features'
+import { DeletePlantButton, UpdatePlantButton } from 'features'
 import { PlantStatusChips } from 'widgets'
 
 // TODO: Нужно добавить потом лоадер и учесть асинхронщину
@@ -30,7 +30,7 @@ export const ItemPage = () => {
       <div className="z-10 flex flex-col px-5 -mt-16 backdrop-blur-sm">
         <div className="flex items-center justify-between h-16 mb-3">
           <PlantInfo plant={plant} />
-          <EditPlantButton plantId={plant.id} />
+          <UpdatePlantButton plantId={plant.id} />
         </div>
 
         <PlantStatusChips plant={plant} size="lg" />

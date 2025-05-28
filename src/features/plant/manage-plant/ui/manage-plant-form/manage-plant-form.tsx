@@ -1,12 +1,17 @@
-import { Button, Form, Input, Textarea } from '@heroui/react'
 import { FC } from 'react'
-import { MenagePlantFormProps } from './types'
+import { Button, Form, Input, Textarea } from '@heroui/react'
+
+import { useModalsStore } from '@app'
+import { FormCard, FormDatepicker, TextInput } from '@shared'
 import { usePlantForm, wateringFrequencyOptions } from '../../lib'
 import { PlantFormHeader } from '../plant-form-header'
-import { FormCard, FormDatepicker, TextInput } from '@shared'
 import { FrequencySelect } from '../frequency-select'
+import { ManagePlantFormProps } from './types'
 
-export const MenagePlantForm: FC<MenagePlantFormProps> = ({ plant, mode }) => {
+export const ManagePlantForm: FC<ManagePlantFormProps> = ({ plant, mode }) => {
+  const { showModalUpdatePlant, showModalCreatePlant, setSubmitCallback } =
+    useModalsStore()
+
   const {
     control,
     register,
@@ -16,13 +21,22 @@ export const MenagePlantForm: FC<MenagePlantFormProps> = ({ plant, mode }) => {
     // { errors },
   } = usePlantForm({ plant, mode })
 
+  const showModal =
+    mode === 'create' ? showModalCreatePlant : showModalUpdatePlant
+
+  const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    showModal()
+    setSubmitCallback(() => onSubmit(e))
+  }
+
   return (
     <div className="flex flex-col">
-      <PlantFormHeader isEditMode={!!plant} />
+      <PlantFormHeader isUpdateMode={mode === 'update'} />
       <Form
         validationBehavior="aria"
         className="flex flex-col gap-4 mx-4 my-6"
-        onSubmit={onSubmit}
+        onSubmit={handleSumbit}
       >
         <FormCard>
           <TextInput label="Название" {...register('plant_type')} isRequired />

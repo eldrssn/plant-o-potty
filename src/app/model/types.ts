@@ -1,5 +1,16 @@
 export interface ModalsStore {
-  isShowedModalDeletePlantConfirm: boolean
-  showModalDeletePlantConfirm: () => void
-  hideModalDeletePlantConfirm: () => void
+  submitCallback?: () => void
+  setSubmitCallback: (cb: () => void) => void
+
+  isShowedModalDeletePlant: boolean
+  showModalDeletePlant: () => void
+  hideModalDeletePlant: () => void
+
+  isShowedModalCreatePlant: boolean
+  showModalCreatePlant: () => void
+  hideModalCreatePlant: () => void
+
+  isShowedModalUpdatePlant: boolean
+  showModalUpdatePlant: () => void
+  hideModalUpdatePlant: () => void
 }

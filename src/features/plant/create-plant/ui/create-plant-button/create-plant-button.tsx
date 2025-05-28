@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@heroui/react'
 
-export const AddPlantButton: FC = () => {
+export const CreatePlantButton: FC = () => {
   const navigate = useNavigate()
 
   return (
@@ -12,7 +12,7 @@ export const AddPlantButton: FC = () => {
       variant="flat"
       onPress={() => navigate(`/create`)}
     >
-      Add New Plant
+      Довить новое растение
     </Button>
   )
 }

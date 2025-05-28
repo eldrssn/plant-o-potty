@@ -2,5 +2,5 @@ import { PlantModel } from '@entities'
 
 export type PlantFormType = {
   plant?: PlantModel
-  mode: 'create' | 'edit'
+  mode: 'create' | 'update'
 }

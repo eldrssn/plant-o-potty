@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
+import { NAV_ROUTES } from '@app'
 import { EMPTY_PLANT, usePlantsStore } from '@entities'
 import { ManagePlantFormData, managePlantFormSchema } from '../model'
 import { PlantFormType } from './types'
-import { NAV_ROUTES } from '@app'
 
 export const usePlantForm = ({ plant, mode }: PlantFormType) => {
-  const { addPlant, updatePlant } = usePlantsStore()
+  const { createPlant, updatePlant } = usePlantsStore()
+
   const navigate = useNavigate()
 
   const form = useForm<ManagePlantFormData>({
@@ -19,7 +20,7 @@ export const usePlantForm = ({ plant, mode }: PlantFormType) => {
   })
 
   const onSubmit: SubmitHandler<ManagePlantFormData> = (data) => {
-    if (mode === 'edit') {
+    if (mode === 'update') {
       updatePlant(data)
       navigate(-1)
       return
@@ -31,7 +32,7 @@ export const usePlantForm = ({ plant, mode }: PlantFormType) => {
       id: newPlantId,
     }
 
-    addPlant(newPlant)
+    createPlant(newPlant)
     navigate(NAV_ROUTES.PLANTS.path + '/' + newPlantId)
   }
 

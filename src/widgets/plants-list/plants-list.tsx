@@ -1,5 +1,5 @@
 import { PlantListItem, usePlantsStore } from 'entities'
-import { AddPlantButton } from 'features'
+import { CreatePlantButton } from 'features'
 
 export const PlantsList = () => {
   const { plants } = usePlantsStore()
@@ -12,7 +12,7 @@ export const PlantsList = () => {
       {!plants.length && (
         <p className="p-10 pb-20 text-2xl text-center">Нет растений 😬</p>
       )}
-      <AddPlantButton />
+      <CreatePlantButton />
     </main>
   )
 }

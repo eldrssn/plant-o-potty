@@ -1,14 +1,14 @@
-import { PlantModel, usePlantsStore } from '@entities'
-
-import { MenagePlantForm } from 'features'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-export const EditPlantPage = () => {
-  const [plant, setPlant] = useState<PlantModel>()
-  const { itemId } = useParams()
+import { PlantModel, usePlantsStore } from '@entities'
+import { ManagePlantForm } from 'features'
 
+export const UpdatePlantPage = () => {
+  const { itemId } = useParams()
   const { plants } = usePlantsStore()
+
+  const [plant, setPlant] = useState<PlantModel>()
 
   useEffect(() => {
     const currentPlant = plants.find(({ id }) => id === itemId)
@@ -17,5 +17,5 @@ export const EditPlantPage = () => {
 
   if (!plant) return <></>
 
-  return <MenagePlantForm plant={plant} mode="edit" />
+  return <ManagePlantForm plant={plant} mode="update" />
 }

@@ -16,19 +16,17 @@ export const ManagePlantForm: FC<ManagePlantFormProps> = ({ plant, mode }) => {
     control,
     register,
     onSubmit,
-    // watch,
-    // formState:
-    // { errors },
+    handleSubmit,
+    formState: { isDirty, errors },
   } = usePlantForm({ plant, mode })
 
   const showModal =
     mode === 'create' ? showModalCreatePlant : showModalUpdatePlant
 
-  const handleSumbit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const onFormSubmit = handleSubmit(() => {
     showModal()
-    setSubmitCallback(() => onSubmit(e))
-  }
+    setSubmitCallback(onSubmit)
+  })
 
   return (
     <div className="flex flex-col">
@@ -36,15 +34,19 @@ export const ManagePlantForm: FC<ManagePlantFormProps> = ({ plant, mode }) => {
       <Form
         validationBehavior="aria"
         className="flex flex-col gap-4 mx-4 my-6"
-        onSubmit={handleSumbit}
+        onSubmit={onFormSubmit}
       >
         <FormCard>
-          <TextInput label="Название" {...register('plant_type')} isRequired />
+          <TextInput
+            label="Название"
+            {...register('plant_type')}
+            isRequired
+            errorMessage={errors['plant_type']?.message}
+          />
           <TextInput label="Ласковое имя" {...register('nickname')} />
         </FormCard>
 
         <FormCard>
-          {/* TODO: преобразовать в нормальный инпут с фото и всеми стейтами */}
           <Input
             label="Фото"
             variant="flat"
@@ -85,6 +87,7 @@ export const ManagePlantForm: FC<ManagePlantFormProps> = ({ plant, mode }) => {
           variant="shadow"
           color="success"
           className="w-full"
+          isDisabled={!isDirty}
         >
           Сохранить
         </Button>

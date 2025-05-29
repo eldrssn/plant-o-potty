@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import { Controller } from 'react-hook-form'
 import { DatePicker } from '@heroui/react'
-import { FormDatepickerProps } from './types'
+
 import { calendarDateToISOString, isoStringToCalendarDate } from 'shared/lib'
+import { FormDatepickerProps } from './types'
 
 export const FormDatepicker: FC<FormDatepickerProps> = ({
   control,
@@ -10,7 +11,7 @@ export const FormDatepicker: FC<FormDatepickerProps> = ({
   label,
   className = 'w-full',
   size = 'lg',
-  isRequired = false,
+  isRequired = true,
 }) => {
   return (
     <Controller

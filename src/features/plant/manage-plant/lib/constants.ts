@@ -1,3 +1,5 @@
+import { ManagePlantFormData } from '../model'
+
 export const wateringFrequencyOptions = [
   { key: 1, label: 'Каждый день' },
   { key: 2, label: 'Каждые 2 дня' },
@@ -75,3 +77,16 @@ export const wateringFrequencyOptions = [
   { key: 74, label: 'Каждые 74 дня' },
   { key: 75, label: 'Каждые 75 дней (Раз в 2.5 месяца)' },
 ]
+
+const today = new Date().toISOString()
+
+export const EMPTY_MANAGE_FORM: ManagePlantFormData = {
+  id: '',
+  plant_type: '',
+  nickname: '',
+  wateringIntervalDays: 3,
+  lastWateredDate: today,
+  photoUrl: null,
+  notes: '',
+  addedDate: today,
+}

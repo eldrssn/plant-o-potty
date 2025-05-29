@@ -4,8 +4,9 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { NAV_ROUTES } from '@app'
-import { EMPTY_PLANT, usePlantsStore } from '@entities'
+import { usePlantsStore } from '@entities'
 import { ManagePlantFormData, managePlantFormSchema } from '../model'
+import { EMPTY_MANAGE_FORM } from './constants'
 import { PlantFormType } from './types'
 
 export const usePlantForm = ({ plant, mode }: PlantFormType) => {
@@ -15,8 +16,8 @@ export const usePlantForm = ({ plant, mode }: PlantFormType) => {
 
   const form = useForm<ManagePlantFormData>({
     resolver: zodResolver(managePlantFormSchema),
-    defaultValues: EMPTY_PLANT,
-    values: plant || EMPTY_PLANT,
+    defaultValues: EMPTY_MANAGE_FORM,
+    values: plant || EMPTY_MANAGE_FORM,
   })
 
   const onSubmit: SubmitHandler<ManagePlantFormData> = (data) => {

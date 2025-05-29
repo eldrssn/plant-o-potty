@@ -1,6 +1,7 @@
-import { Autocomplete, AutocompleteItem } from '@heroui/react'
 import { FC } from 'react'
+import { Autocomplete, AutocompleteItem } from '@heroui/react'
 import { Controller } from 'react-hook-form'
+
 import { FrequencySelectProps } from './types'
 
 export const FrequencySelect: FC<FrequencySelectProps> = ({
@@ -10,7 +11,10 @@ export const FrequencySelect: FC<FrequencySelectProps> = ({
   <Controller
     control={control}
     name="wateringIntervalDays"
-    render={({ field: { onChange, onBlur, value, ref } }) => (
+    render={({
+      field: { onChange, onBlur, value, ref },
+      fieldState: { error },
+    }) => (
       <Autocomplete
         ref={ref}
         className="w-full"
@@ -18,9 +22,12 @@ export const FrequencySelect: FC<FrequencySelectProps> = ({
         label="Частота полива"
         size="lg"
         selectedKey={value?.toString()}
+        isRequired
         onSelectionChange={(key) => {
           onChange(key ? Number(key) : null)
         }}
+        isInvalid={!!error?.message}
+        errorMessage={error?.message}
         onBlur={onBlur}
       >
         {(item) => (

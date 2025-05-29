@@ -15,12 +15,18 @@ export const PlantStatusChips: FC<PlantStatusChipsProps> = ({
 
   return (
     <div className="flex flex-wrap gap-2 mb-4">
-      <WateringIntervalChip
-        size={size}
-        wateringIntervalDays={wateringIntervalDays}
-      />
-      <WateringStatusChip size={size} nextWateringDate={nextWateringDate} />
-      <LastWateringChip size={size} lastWateredDate={lastWateredDate} />
+      {wateringIntervalDays && (
+        <WateringIntervalChip
+          size={size}
+          wateringIntervalDays={wateringIntervalDays}
+        />
+      )}
+      {nextWateringDate && (
+        <WateringStatusChip size={size} nextWateringDate={nextWateringDate} />
+      )}
+      {lastWateredDate && (
+        <LastWateringChip size={size} lastWateredDate={lastWateredDate} />
+      )}
     </div>
   )
 }

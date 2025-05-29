@@ -2,8 +2,8 @@ export interface PlantModel {
   id: string
   nickname?: string
   plant_type: string
-  wateringIntervalDays?: number
-  lastWateredDate?: string | null
+  wateringIntervalDays: number
+  lastWateredDate: string
   nextWateringDate?: string | null
   location?: string
   notes?: string

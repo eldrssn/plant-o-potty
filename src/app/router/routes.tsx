@@ -10,9 +10,9 @@ import {
 import { MainLayout } from 'app/layouts'
 
 export const NAV_ROUTES = {
-  DASHBOARD: { path: '/', name: 'Home' },
-  PLANTS: { path: '/plants', name: 'My Plants' },
-  PROFILE: { path: '/profile', name: 'Profile' },
+  DASHBOARD: { path: '/', name: 'Главная' },
+  PLANTS: { path: '/plants', name: 'Растения' },
+  PROFILE: { path: '/profile', name: 'Профиль' },
 }
 
 export const ROUTES_LIST: RouteObject[] = [

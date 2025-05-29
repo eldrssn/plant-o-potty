@@ -7,12 +7,12 @@ export const CreatePlantButton: FC = () => {
 
   return (
     <Button
-      className="fixed z-20 -translate-x-1/2 w-60 bottom-16 left-1/2"
-      radius="lg"
-      variant="flat"
+      className="fixed z-20 -translate-x-1/2 w-60 bottom-16 left-1/2 backdrop-blur-sm"
+      radius="md"
+      variant="bordered"
       onPress={() => navigate(`/create`)}
     >
-      Довить новое растение
+      Добавить новое растение
     </Button>
   )
 }

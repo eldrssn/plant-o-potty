@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { NAV_ROUTES } from '@app'
-import { usePlantsStore } from '@entities'
+import { calcNextWateringDate, usePlantsStore } from '@entities'
 import { ManagePlantFormData, managePlantFormSchema } from '../model'
 import { EMPTY_MANAGE_FORM } from './constants'
 import { PlantFormType } from './types'
@@ -21,8 +21,12 @@ export const usePlantForm = ({ plant, mode }: PlantFormType) => {
   })
 
   const onSubmit: SubmitHandler<ManagePlantFormData> = (data) => {
+    const nextWateringDate = calcNextWateringDate(
+      data.lastWateredDate,
+      data.wateringIntervalDays
+    )
     if (mode === 'update') {
-      updatePlant(data)
+      updatePlant({ ...data, nextWateringDate })
       navigate(-1)
       return
     }
@@ -30,6 +34,7 @@ export const usePlantForm = ({ plant, mode }: PlantFormType) => {
     const newPlantId = uuidv4()
     const newPlant = {
       ...data,
+      nextWateringDate,
       id: newPlantId,
     }
 

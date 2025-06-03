@@ -4,6 +4,7 @@ import {
   CreatePlantConfirmModal,
   DeletePlantConfirmModal,
   UpdatePlantConfirmModal,
+  WaterPlantConfirmModal,
 } from 'features'
 
 export const ModalsProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -11,9 +12,11 @@ export const ModalsProvider: FC<PropsWithChildren> = ({ children }) => {
     isShowedModalDeletePlant,
     isShowedModalCreatePlant,
     isShowedModalUpdatePlant,
+    isShowedModalWaterPlant,
     hideModalDeletePlant,
     hideModalCreatePlant,
     hideModalUpdatePlant,
+    hideModalWaterPlant,
   } = useModalsStore()
 
   return (
@@ -30,6 +33,11 @@ export const ModalsProvider: FC<PropsWithChildren> = ({ children }) => {
       <UpdatePlantConfirmModal
         isOpen={isShowedModalUpdatePlant}
         onClose={hideModalUpdatePlant}
+      />
+
+      <WaterPlantConfirmModal
+        isOpen={isShowedModalWaterPlant}
+        onClose={hideModalWaterPlant}
       />
     </>
   )

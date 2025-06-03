@@ -7,7 +7,11 @@ import {
   PlantNotes,
   usePlantsStore,
 } from '@entities'
-import { DeletePlantButton, UpdatePlantButton } from 'features'
+import {
+  DeletePlantButton,
+  UpdatePlantButton,
+  WaterPlantButton,
+} from 'features'
 import { PlantStatusChips } from 'widgets'
 
 // TODO: Нужно добавить потом лоадер и учесть асинхронщину
@@ -37,6 +41,7 @@ export const ItemPage = () => {
 
         {plant.notes && <PlantNotes notes={plant.notes} />}
       </div>
+      <WaterPlantButton />
 
       <DeletePlantButton />
     </div>

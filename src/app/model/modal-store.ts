@@ -16,4 +16,8 @@ export const useModalsStore = create<ModalsStore>((set) => ({
   isShowedModalUpdatePlant: false,
   showModalUpdatePlant: () => set({ isShowedModalUpdatePlant: true }),
   hideModalUpdatePlant: () => set({ isShowedModalUpdatePlant: false }),
+
+  isShowedModalWaterPlant: false,
+  showModalWaterPlant: () => set({ isShowedModalWaterPlant: true }),
+  hideModalWaterPlant: () => set({ isShowedModalWaterPlant: false }),
 }))

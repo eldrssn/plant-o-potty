@@ -13,4 +13,8 @@ export interface ModalsStore {
   isShowedModalUpdatePlant: boolean
   showModalUpdatePlant: () => void
   hideModalUpdatePlant: () => void
+
+  isShowedModalWaterPlant: boolean
+  showModalWaterPlant: () => void
+  hideModalWaterPlant: () => void
 }

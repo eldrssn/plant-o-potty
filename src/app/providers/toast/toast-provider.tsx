@@ -8,6 +8,7 @@ export const ToastProvider = () => (
       classNames: {
         closeButton: 'opacity-100 absolute right-4 top-1/2 -translate-y-1/2',
       },
+      timeout: 1000,
       closeIcon: (
         <svg
           fill="none"

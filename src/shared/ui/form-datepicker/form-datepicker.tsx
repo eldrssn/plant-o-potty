@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Controller } from 'react-hook-form'
 import { DatePicker } from '@heroui/react'
+import { getLocalTimeZone, today } from '@internationalized/date'
 
 import { calendarDateToISOString, isoStringToCalendarDate } from 'shared/lib'
 import { FormDatepickerProps } from './types'
@@ -35,6 +36,7 @@ export const FormDatepicker: FC<FormDatepickerProps> = ({
           onBlur={onBlur}
           isInvalid={!!error}
           errorMessage={error?.message}
+          maxValue={today(getLocalTimeZone())}
         />
       )}
     />

@@ -7,7 +7,7 @@ function App() {
   useSyncPlants()
 
   return (
-    <HeroUIProvider>
+    <HeroUIProvider locale="ru-RU">
       <RouterProvider router={router} />
     </HeroUIProvider>
   )

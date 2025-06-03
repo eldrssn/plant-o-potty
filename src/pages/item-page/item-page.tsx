@@ -27,10 +27,10 @@ export const ItemPage = () => {
   return (
     <div className="flex flex-col h-full pb-5">
       <PlantImage src={plant.photoUrl} />
+      <UpdatePlantButton plantId={plant.id} />
       <div className="z-10 flex flex-col px-5 -mt-16 backdrop-blur-sm">
         <div className="flex items-center justify-between h-16 mb-3">
           <PlantInfo plant={plant} />
-          <UpdatePlantButton plantId={plant.id} />
         </div>
 
         <PlantStatusChips plant={plant} size="lg" />

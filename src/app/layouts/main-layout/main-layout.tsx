@@ -18,12 +18,12 @@ export const MainLayout: FC = () => {
         <Header />
       ) : (
         <Button
-          className="fixed z-20 top-4 left-4"
+          className="absolute z-20 top-4 left-4"
           radius="lg"
           variant="flat"
           onPress={() => navigate(-1)}
         >
-          Back
+          Назад
         </Button>
       )}
       <ModalsProvider>

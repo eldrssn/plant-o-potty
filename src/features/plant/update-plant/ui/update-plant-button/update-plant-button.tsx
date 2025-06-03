@@ -9,7 +9,7 @@ export const UpdatePlantButton: FC<UpdatePlantButtonProps> = ({ plantId }) => {
 
   return (
     <Button
-      className="z-20"
+      className="absolute z-20 top-4 right-4"
       radius="lg"
       variant="flat"
       onPress={() => navigate(`${NAV_ROUTES.PLANTS.path}/${plantId}/update`)}

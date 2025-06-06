@@ -1,12 +1,13 @@
 import { FC } from 'react'
-import { Button, Form, Input, Textarea } from '@heroui/react'
+import { Button, Form, Textarea } from '@heroui/react'
 
 import { useModalsStore } from '@app'
-import { FormCard, FormDatepicker, TextInput } from '@shared'
+import { FormCard, FormDatepicker, ImageUploader, TextInput } from '@shared'
 import { usePlantForm, wateringFrequencyOptions } from '../../lib'
 import { PlantFormHeader } from '../plant-form-header'
 import { FrequencySelect } from '../frequency-select'
 import { ManagePlantFormProps } from './types'
+import { ManagePlantFormData } from '../../model'
 
 export const ManagePlantForm: FC<ManagePlantFormProps> = ({ plant, mode }) => {
   const { showModalUpdatePlant, showModalCreatePlant, setSubmitCallback } =
@@ -47,16 +48,10 @@ export const ManagePlantForm: FC<ManagePlantFormProps> = ({ plant, mode }) => {
         </FormCard>
 
         <FormCard>
-          <Input
-            label="Фото"
-            variant="flat"
-            isClearable
-            type="file"
-            className="text-xl"
-            size="lg"
-            labelPlacement="outside"
-            fullWidth={false}
-            {...register('photoUrl')}
+          <ImageUploader<ManagePlantFormData>
+            label="Фото растения"
+            control={control}
+            name="photoUrl"
           />
         </FormCard>
         <FormCard>

@@ -4,7 +4,7 @@ export const managePlantFormSchema = z.object({
   id: z.string(),
   nickname: z.string().optional(),
   plant_type: z.string().min(1, 'Укажите название'),
-  photoUrl: z.string().nullable().optional(),
+  photoUrl: z.string().optional().nullable(),
   wateringIntervalDays: z
     .number({ invalid_type_error: 'Обязательное поле' })
     .int()

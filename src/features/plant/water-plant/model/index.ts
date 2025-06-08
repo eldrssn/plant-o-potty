@@ -1,1 +1,1 @@
-export * from './use-delete-plant-confirm'
+export * from './use-water-plant-confirm'

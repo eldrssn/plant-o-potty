@@ -1,5 +1,5 @@
-import { Card } from '@heroui/react'
+import { Dashboard } from 'features'
 
 export const DashboardPage = () => {
-  return <Card>DashboardPage</Card>
+  return <Dashboard />
 }

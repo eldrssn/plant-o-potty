@@ -41,7 +41,7 @@ export const ItemPage = () => {
 
         {plant.notes && <PlantNotes notes={plant.notes} />}
       </div>
-      <WaterPlantButton />
+      <WaterPlantButton itemId={plant.id} />
 
       <DeletePlantButton />
     </div>

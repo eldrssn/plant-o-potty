@@ -12,9 +12,9 @@ import { ModalProps } from './types'
 import { useWaterPlantConfirm } from '../../model'
 
 export const WaterPlantConfirmModal: FC<ModalProps> = ({ onClose, isOpen }) => {
-  const { itemId, handleDelete } = useWaterPlantConfirm(onClose)
+  const { handleConfirm } = useWaterPlantConfirm(onClose)
 
-  if (!itemId) return <></>
+  // if (!itemId) return <></>
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -23,7 +23,7 @@ export const WaterPlantConfirmModal: FC<ModalProps> = ({ onClose, isOpen }) => {
           Полить это растение?
         </ModalHeader>
         <ModalFooter>
-          <Button color="primary" className="w-full" onPress={handleDelete}>
+          <Button color="primary" className="w-full" onPress={handleConfirm}>
             Да, полить
           </Button>
           <Button color="default" className="w-full" onPress={onClose}>

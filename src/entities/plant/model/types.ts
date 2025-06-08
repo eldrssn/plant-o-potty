@@ -4,7 +4,7 @@ export interface PlantModel {
   plant_type: string
   wateringIntervalDays: number
   lastWateredDate: string
-  nextWateringDate?: string | null
+  nextWateringDate: string | null
   location?: string
   notes?: string
   photoUrl?: string | null
@@ -16,8 +16,14 @@ export interface PlantsState {
   isLoading: boolean
   createPlant: (newPlant: PlantModel) => void
   deletePlant: (plantId: string) => void
-  waterPlant: (plantId: string, newLastWateredDate: string) => void
+  waterPlant: (plantId: string) => void
   updatePlant: (updatedPlant: PlantModel) => void
   setPlants: (plants: PlantModel[]) => void
   setLoading: (loading: boolean) => void
+}
+
+export enum WateringStatusTypes {
+  OVERDUE = 'overdue',
+  TODAY = 'today',
+  FUTURE = 'future',
 }

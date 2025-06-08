@@ -1,10 +1,10 @@
 import { Chip } from '@heroui/react'
+import { FC } from 'react'
 import {
   getDayAndMonth,
   getDaysDifferenceFromNow,
   getWateringStatus,
-} from 'entities/plant/lib'
-import { FC } from 'react'
+} from 'entities'
 import { WateringStatusChipProps } from './types'
 
 export const WateringStatusChip: FC<WateringStatusChipProps> = ({

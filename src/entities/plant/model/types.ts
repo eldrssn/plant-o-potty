@@ -23,7 +23,6 @@ export interface PlantsState {
 }
 
 export enum WateringStatusTypes {
-  OVERDUE = 'overdue',
-  TODAY = 'today',
+  CURRENT = 'current',
   FUTURE = 'future',
 }

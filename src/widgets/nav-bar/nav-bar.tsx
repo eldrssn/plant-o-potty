@@ -21,11 +21,9 @@ export const NavBar: FC<PropsType> = ({ routes, isMatch }) => {
           <Tab
             key={path}
             title={
-              <div>
-                <Link to={path}>
-                  <span>{name}</span>
-                </Link>
-              </div>
+              <Link to={path}>
+                <span>{name}</span>
+              </Link>
             }
           />
         ))}

@@ -1,4 +1,7 @@
-export const getDaysDifference = (isoDate1: string | null, isoDate2: string | null) => {
+export const getDaysDifference = (
+  isoDate1: string | null,
+  isoDate2: string | null
+) => {
   if (isoDate1 === null || isoDate2 === null) return null
 
   const toUTCDateOnly = (iso: string) => {

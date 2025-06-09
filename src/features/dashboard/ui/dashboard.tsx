@@ -4,6 +4,7 @@ import {
   WateringStatusTypes,
 } from '@entities'
 import { Tab, Tabs } from '@heroui/react'
+import { CreatePlantButton } from 'features/plant'
 import { Key, useMemo, useState } from 'react'
 import { TaskList } from 'widgets'
 
@@ -18,6 +19,7 @@ export const Dashboard = () => {
 
   return (
     <main className="flex flex-col gap-4 px-4 pb-32">
+      {/* TODO: вынести в отдельный компонент */}
       <Tabs
         aria-label="Tabs variants"
         variant="underlined"
@@ -30,14 +32,26 @@ export const Dashboard = () => {
         <Tab key={WateringStatusTypes.FUTURE} title="Будущие задачи" />
       </Tabs>
 
+      {/* TODO: разобрать этот код */}
       {tab === WateringStatusTypes.CURRENT && (
         <>
           {current.length > 0 ? (
             <TaskList items={current} header="Сегодня" />
           ) : (
-            <p className="p-10 pb-20 text-2xl text-center">
-              Все полито! Ты молодец! 🤩
-            </p>
+            <>
+              {!plants.length ? (
+                <>
+                  <p className="p-10 pb-20 text-2xl text-center">
+                    Скорее добавь растение, чтобы заботится о нем! 🪴
+                  </p>
+                  <CreatePlantButton />
+                </>
+              ) : (
+                <p className="p-10 pb-20 text-2xl text-center">
+                  Все полито! Ты молодец! 🤩
+                </p>
+              )}
+            </>
           )}
         </>
       )}
